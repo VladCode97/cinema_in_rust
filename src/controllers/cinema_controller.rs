@@ -21,14 +21,12 @@ pub fn fill_matrix(matrix_cinema: &mut Vec<Vec<ChairCinema>>, rows: usize, colum
         }
         matrix_cinema.push(row_data);
     }
-    dbg!(matrix_cinema);
 }
 
-pub fn change_state_of_chair(matrix_cinema: &mut Vec<Vec<ChairCinema>>, name_chair: String) {
-    'a: for row in 0..matrix_cinema.len() {
-        for column in 0..matrix_cinema.len() {
-            if matrix_cinema[row][column].chair.to_string() == name_chair &&
-                matrix_cinema[row][column].state == EMPTY("Empty".to_string()) {
+pub fn change_state_of_chair(matrix_cinema: &mut Vec<Vec<ChairCinema>>, name_chair: String, rows: usize, columns: usize) {
+    'a: for row in 0..rows {
+        for column in 0..columns {
+            if matrix_cinema[row][column].chair == name_chair && matrix_cinema[row][column].state == EMPTY("Empty".to_string()) {
                 matrix_cinema[row][column].state = BUSY("BUSY".to_string());
                 break 'a;
             }

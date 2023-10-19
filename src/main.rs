@@ -6,9 +6,11 @@ mod controllers;
 
 fn main() {
     let mut matrix_cinema: Vec<Vec<ChairCinema>> = Vec::new();
-    fill_matrix(&mut matrix_cinema, 3, 3);
-    print_matrix_cinema(&matrix_cinema);
-    change_state_of_chair(&mut matrix_cinema, "a1".to_string());
-    change_state_of_chair(&mut matrix_cinema, "c1".to_string());
+    let rows: usize = 3;
+    let columns: usize = 5;
+    fill_matrix(&mut matrix_cinema, *&rows, *&columns);
+    change_state_of_chair(&mut matrix_cinema, "a1".to_string(), *&rows, *&columns);
+    change_state_of_chair(&mut matrix_cinema, "b3".to_string(), *&rows, *&columns);
+    change_state_of_chair(&mut matrix_cinema, "c4".to_string(), *&rows, *&columns);
     print_matrix_cinema(&matrix_cinema);
 }
